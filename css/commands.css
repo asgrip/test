@@ -1,0 +1,456 @@
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;display=swap';
+#commands-box {
+    display: flex;
+    border-radius: 8px;
+    background: #2f3136;
+    width: 80vw;
+    height: 70vh;
+    margin: auto;
+    flex-direction: column;
+    max-width: 1500px
+}
+
+#chat-box {
+    margin: auto;
+    margin-bottom: 25px;
+    width: calc(100% - 50px);
+    height: 45px;
+    background: #40444b;
+    border-radius: 8px;
+    overflow: hidden
+}
+
+#chat-box #chat-box-inner {
+    color: #fff;
+    margin-left: 28px;
+    border: none;
+    height: 100%;
+    width: calc(100% - 28px);
+    background: 0 0;
+    font-size: 1.1em
+}
+
+input:focus {
+    outline: none
+}
+
+#chat-box #chat-box-slash {
+    position: absolute;
+    background: #383b41;
+    color: #aaa;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    height: 45px;
+    width: 28px;
+    display: flex;
+    user-select: none
+}
+
+#chat-box #chat-box-slash p {
+    margin: auto;
+    margin-right: 2px;
+    font-size: 1.5em
+}
+
+#commands-header {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    width: 300px;
+    height: 22px;
+    margin-left: 20px;
+    user-select: none
+}
+
+#commands-header p {
+    white-space: nowrap;
+    margin: auto;
+    margin-left: 0;
+    font-size: .97em
+}
+
+#commands-header p span {
+    font-weight: 600;
+    color: #ddd;
+    font-family: Roboto
+}
+
+.commands-logo {
+    background: url('https://cdn.discordapp.com/attachments/1140164704157847575/1140265828298797158/3db700b63bfa250d4a5cd556ef8af54e.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%
+}
+
+#commands-header .commands-logo {
+    width: 22px;
+    margin-right: 10px
+}
+
+#popup {
+    margin: 0;
+    margin-top: 5px;
+    height: calc(70vh - 80px);
+    display: flex;
+    flex-direction: column
+}
+
+#popup #commands-list {
+    margin-top: 10px;
+    margin-left: 10px;
+    max-height: calc(70vh - 110px);
+    height: auto;
+    overflow: hidden;
+    margin-top: auto;
+    margin-bottom: 0
+}
+
+#popup #commands-list[data-simplebar=init] {
+    overflow: auto
+}
+
+#popup #commands-list-inner {
+    width: calc(100% - 40px);
+    margin-left: 15px;
+    display: flex;
+    justify-content: end;
+    flex-direction: column
+}
+
+.simplebar-scrollbar::before {
+    background-color: #121314;
+    padding: 5.3px;
+    left: 0;
+    bottom: 0 !important;
+    top: 0 !important
+}
+
+.simplebar-track {
+    background-color: #31363b;
+    border-radius: 8px;
+    margin-right: 8px
+}
+
+.command-entry {
+    font-family: noto sans, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 5px;
+    border-radius: 8px;
+    height: 56px;
+    user-select: none;
+    cursor: pointer;
+    height: auto;
+    min-height: 56px
+}
+
+.command-entry p {
+    margin: 0
+}
+
+.command-entry .detailsSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    margin-bottom: auto
+}
+
+.command-entry .upperSection {
+    display: flex;
+    height: 50%;
+    flex-direction: row
+}
+
+.command-entry .upperSection .commandOptions {
+    display: flex;
+    flex-direction: row
+}
+
+.command-entry .lowerSection {
+    display: flex;
+    height: 50%;
+    justify-content: flex-start;
+    font-size: .85em;
+    color: #c7c7c7
+}
+
+.command-entry .lowerSection p {
+    text-align: left
+}
+
+.command-entry .command-name {
+    font-size: 1.1em;
+    text-align: left
+}
+
+.command-entry .commands-logo {
+    width: 32px;
+    height: 32px;
+    min-height: 32px;
+    min-width: 32px;
+    margin-top: 12px;
+    margin-right: 16px
+}
+
+.command-entry .commandOptions {
+    margin-left: 10px;
+    visibility: hidden
+}
+
+.command-entry .commandOption {
+    padding-bottom: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    background: #18191c;
+    border-radius: 4px;
+    margin-left: 5px
+}
+
+.command-entry:hover {
+    background: #36393f
+}
+
+.command-entry:hover .commandOptions {
+    visibility: visible
+}
+
+#no-commands-found {
+    color: #aaa;
+    margin-top: auto
+}
+
+@media screen and (max-width:490px),
+(max-height:480px) {
+    #commands-box {
+        width: 100vw;
+        position: fixed;
+        height: calc(100% - 60px);
+        top: 60px;
+        border-radius: 0
+    }
+    #popup {
+        height: calc(100% - 80px)
+    }
+    #popup #commands-list {
+        max-height: calc(100%);
+        overflow-x: hidden;
+        margin-left: unset
+    }
+    .command-entry .commandOptions,
+    .command-entry:hover .commandOptions {
+        display: none !important
+    }
+    .command-entry .commands-logo {
+        display: none
+    }
+    .command-entry:hover {
+        background: unset
+    }
+    .simplebar-scrollbar::before,
+    .simplebar-track {
+        display: none
+    }
+    #commands-header-title {
+        visibility: hidden
+    }
+    #commands-header-title:after {
+        content: 'Commands';
+        visibility: visible;
+        transform: translateX(-60px);
+        position: absolute
+    }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&display=swap");
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    min-height: 100vh;
+    background-color: #1e1e1e;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    font-family: "League Spartan", system-ui, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    color: #ddd;
+}
+
+ul {
+    list-style: none;
+}
+
+.main {
+    max-width: 75rem;
+    padding: 3em 1.5em;
+}
+
+.main__heading {
+    font-weight: 600;
+    font-size: 2.25em;
+    margin-bottom: 0.75em;
+    text-align: center;
+    color: #eceff1;
+}
+
+.cards {
+    position: relative;
+}
+
+.cards__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5em;
+}
+
+.card {
+    --flow-space: 0.5em;
+    --hsl: var(--hue), var(--saturation), var(--lightness);
+    flex: 1 1 14rem;
+    padding: 1.5em 2em;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    align-items: start;
+    gap: 1.25em;
+    color: #eceff1;
+    background-color: #2b2b2b;
+    border: 1px solid #eceff133;
+    border-radius: 15px;
+}
+
+.card:nth-child(2) {
+    --hue: 355.69;
+    --saturation: 82.26%;
+    --lightness: 51.37%;
+}
+
+.card:nth-child(1) {
+    --hue: 291.69;
+    --saturation: 95.9%;
+    --lightness: 61.76%;
+}
+
+.card:nth-child(3) {
+    --hue: 33.69;
+    --saturation: 100%;
+    --lightness: 48.04%;
+}
+
+.card:nth-child(4) {
+    --hue: 146.69;
+    --saturation: 100%;
+    --lightness: 48.04%;
+}
+
+.card:nth-child(5) {
+    --hue: 52.69;
+    --saturation: 100%;
+    --lightness: 48.04%;
+}
+
+.card:nth-child(6) {
+    --hue: 197.69;
+    --saturation: 100%;
+    --lightness: 48.04%;
+}
+
+.card:nth-child(7) {
+    --hue: 330.69;
+    --saturation: 100%;
+    --lightness: 48.04%;
+}
+
+.card:nth-child(8) {
+    --hue: 80.69;
+    --saturation: 100%;
+    --lightness: 48.04%;
+}
+
+.card__bullets {
+    line-height: 1.4;
+}
+
+.card__bullets li::before {
+    display: inline-block;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='16' title='check' fill='%23dddddd'%3E%3Cpath d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z' /%3E%3C/svg%3E");
+    transform: translatey(0.25ch);
+    margin-right: 1ch;
+}
+
+.card__heading {
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
+.card__price {
+    font-size: 1.75em;
+    font-weight: 700;
+}
+
+.flow>*+* {
+    margin-top: var(--flow-space, 1.25em);
+}
+
+.cta {
+    display: block;
+    align-self: end;
+    margin: 1em 0 0.5em 0;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #0d0d0d;
+    padding: 0.7em;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    user-select: none;
+    opacity: var(--opacity, 0);
+    -webkit-mask: radial-gradient( 25rem 25rem at var(--x) var(--y), #000 1%, transparent 50%);
+    mask: radial-gradient( 25rem 25rem at var(--x) var(--y), #000 1%, transparent 50%);
+    transition: 400ms mask ease;
+    will-change: mask;
+}
+
+.overlay .card {
+    background-color: hsla(var(--hsl), 0.15);
+    border-color: hsla(var(--hsl), 1);
+    box-shadow: 0 0 0 1px inset hsl(var(--hsl));
+}
+
+.overlay .cta {
+    display: block;
+    grid-row: -1;
+    width: 100%;
+    background-color: hsl(var(--hsl));
+    box-shadow: 0 0 0 1px hsl(var(--hsl));
+}
+
+:not(.overlay)>.card {
+    transition: 400ms background ease;
+    will-change: background;
+}
+
+:not(.overlay)>.card:hover {
+    --lightness: 95%;
+    background: hsla(var(--hsl), 0.1);
+}
